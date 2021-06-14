@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BeyzaApp</string>
+    <string name="app_name">BeyzaOnboardingApp</string>
     <string name="welcome_user">Hoşgeldiniz %s!</string>
 
 
