@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         val login = findViewById<Button>(R.id.button_loginPage_login)
 
         val userNameSignUp = sharedPreferences.getString("userNameSignup", "empty")
-        val userPasswordSignUp = sharedPreferences.getString("userPasswordSignup", "empty")
+       //val userPasswordSignUp = sharedPreferences.getString("userPasswordSignup", "empty")
 
         login.setOnClickListener {
             userNameLogin = editUsername.text.toString()
@@ -66,17 +66,5 @@ class LoginActivity : AppCompatActivity() {
                 editPassword.setText("")
             }
         }
-
-        //test
-        /*val userNameSignUp = sharedPreferences.getString("userNameSignup","empty")
-        val userPasswordSignUp =sharedPreferences.getString("userPasswordSignup","empty")
-        val userRetypeSignUp =sharedPreferences.getString("userRetypeSignup","empty")
-
-        Toast.makeText(this, "$userNameSignUp - $userPasswordSignUp - $userRetypeSignUp", Toast.LENGTH_LONG).show()
-*/
-
-
     }
-
-
 }

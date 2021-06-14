@@ -49,14 +49,7 @@ class SignUpActivity : AppCompatActivity() {
             } else if (userRetypeSignup.text.isNullOrEmpty()) {
                 userRetypeSignup.requestFocus()
                 userRetypeSignup.error = "Field can not be left blank"
-            } /*else if(userPasswordSignup.length() < 8){
-                userPasswordSignup?.error = "Password must be at least 8 characters"
-            }*/
-
-            /*else if(userPassword != userRetypePassword)
-            {
-                Toast.makeText(this@SignUpActivity, "Enter the same password !", Toast.LENGTH_LONG).show()
-            }*/
+            }
             else {
                 sharedPreferences.putString("userNameSignup", userName)
                 sharedPreferences.putString("userPasswordSignup", userPassword)
