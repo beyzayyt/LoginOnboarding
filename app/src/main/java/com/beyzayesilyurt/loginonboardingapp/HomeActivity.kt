@@ -18,7 +18,6 @@ class HomeActivity : AppCompatActivity() {
             this.getSharedPreferences("com.beyzayesilyurt.loginonboardingapp", MODE_PRIVATE)
 
         val userNameSignUp = sharedPreferences.getString("userNameSignup", "empty")
-//        homeTitle.text = userNameSignUp
         binding.textviewHomeTitle.text = getString(R.string.welcome_user, userNameSignUp)
 
 

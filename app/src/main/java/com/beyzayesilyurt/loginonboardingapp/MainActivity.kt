@@ -17,9 +17,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         binding.buttonMainLogin.setOnClickListener { val route = Intent(this, LoginActivity::class.java)
             startActivity(route) }
-
-
-
-
     }
 }
