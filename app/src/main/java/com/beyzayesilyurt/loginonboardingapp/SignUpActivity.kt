@@ -5,33 +5,37 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.beyzayesilyurt.loginonboardingapp.databinding.ActivitySignUpBinding
 
 
 class SignUpActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySignUpBinding
+
     var userName = ""
     var userPassword = ""
     var userRetypePassword = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         var sharedPreferences =
             this.getSharedPreferences("com.beyzayesilyurt.loginonboardingapp", Context.MODE_PRIVATE)
                 .edit()
 
-        val userNameSignup = findViewById<EditText>(R.id.textView_signup_usernam)
-        val userPasswordSignup = findViewById<EditText>(R.id.textView_signup_password)
-        val userRetypeSignup = findViewById<EditText>(R.id.textView_signup_retypepassword)
+        val userNameSignup = binding.textViewSignupUsernam
+        val userPasswordSignup = binding.textViewSignupPassword
+        val userRetypeSignup = binding.textViewSignupRetypepassword
 
-        val backButtonSignup = findViewById<ImageButton>(R.id.imageButton_signup_back)
-        backButtonSignup.setOnClickListener {
+        binding.imageButtonSignupBack.setOnClickListener {
             val route = Intent(this, LoginActivity::class.java)
             startActivity(route)
         }
 
-        val buttonSignup = findViewById<Button>(R.id.button_signup)
-        buttonSignup.setOnClickListener {
+        binding.buttonSignup.setOnClickListener {
             userName = userNameSignup.text.toString()
             userPassword = userPasswordSignup.text.toString()
             userRetypePassword = userRetypeSignup.text.toString()
@@ -39,7 +43,7 @@ class SignUpActivity : AppCompatActivity() {
             if (userNameSignup.text.isNullOrEmpty()) {
                 userNameSignup.requestFocus()
                 userNameSignup.error = "Field can not be left blank"
-            } else if (userRetypeSignup.text.isNullOrEmpty() ||userPasswordSignup.text.isNullOrEmpty() ) {
+            } else if (userRetypeSignup.text.isNullOrEmpty() || userPasswordSignup.text.isNullOrEmpty()) {
                 userPasswordSignup.requestFocus()
                 userPasswordSignup.error = "Field can not be left blank"
 
@@ -49,8 +53,7 @@ class SignUpActivity : AppCompatActivity() {
             } else if (userRetypeSignup.text.isNullOrEmpty()) {
                 userRetypeSignup.requestFocus()
                 userRetypeSignup.error = "Field can not be left blank"
-            }
-            else {
+            } else {
                 sharedPreferences.putString("userNameSignup", userName)
                 sharedPreferences.putString("userPasswordSignup", userPassword)
                 sharedPreferences.putString("userRetypeSignup", userRetypePassword)
@@ -60,5 +63,6 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(route)
             }
         }
+
     }
 }
