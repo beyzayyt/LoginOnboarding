@@ -70,29 +70,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-       /* login.setOnClickListener {
-            userNameLogin = editUsername.text.toString()
-            userPasswordLogin = editPassword.text.toString()
 
-            if (editUsername.text.isNullOrEmpty()) {
-                editUsername.requestFocus()
-                editUsername.error = "Field can not be left blank"
-            } else if (editPassword.text.isNullOrEmpty()) {
-                editPassword.requestFocus()
-                editPassword?.error = "Field can not be left blank"
-            } else if (userNameSignUp != userNameLogin) {
-                editUsername.requestFocus()
-                editUsername.error = "can not paired"
-            } else if (rememberMe.isChecked) {
-                sharedPreferences.edit().putString("savedUserName", userNameLogin).apply()
-                val route = Intent(this, HomeActivity::class.java)
-                startActivity(route)
-            } else {
-                val route = Intent(this, HomeActivity::class.java)
-                startActivity(route)
-                editUsername.setText("")
-                editPassword.setText("")
-            }
-        }*/
     }
 }
