@@ -8,12 +8,9 @@ import com.beyzayesilyurt.loginonboardingapp.databinding.ActivityLoginBinding
 
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityLoginBinding
-
     var userNameLogin = ""
     var userPasswordLogin = ""
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +37,7 @@ class LoginActivity : AppCompatActivity() {
             val route1 = Intent(this, SignUpActivity::class.java)
             startActivity(route1)
         }
-
         val userNameSignUp = sharedPreferences.getString("userNameSignup", "empty")
-       //val userPasswordSignUp = sharedPreferences.getString("userPasswordSignup", "empty")
 
         binding.buttonLoginPageLogin.setOnClickListener {
             userNameLogin = editUsername.text.toString()
@@ -68,8 +63,5 @@ class LoginActivity : AppCompatActivity() {
                 editPassword.setText("")
             }
         }
-
-
-
     }
 }

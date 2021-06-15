@@ -9,7 +9,6 @@ import com.beyzayesilyurt.loginonboardingapp.databinding.ActivitySignUpBinding
 
 
 class SignUpActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivitySignUpBinding
 
     var userName = ""
@@ -63,6 +62,5 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(route)
             }
         }
-
     }
 }
