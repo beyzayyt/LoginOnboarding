@@ -4,34 +4,31 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
-import com.beyzayesilyurt.loginonboardingapp.databinding.ActivitySignUpBinding
+import android.view.View
+import com.beyzayesilyurt.loginonboardingapp.databinding.FragmentSignUpBinding
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.beyzayesilyurt.loginonboardingapp.util.viewBinding
 
-
-class SignUpActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignUpBinding
+class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
+    private val binding by viewBinding { FragmentSignUpBinding.bind(it) }
 
     var userName = ""
     var userPassword = ""
     var userRetypePassword = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySignUpBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
 
-        var sharedPreferences =
-            this.getSharedPreferences("com.beyzayesilyurt.loginonboardingapp", Context.MODE_PRIVATE)
-                .edit()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val preference = requireActivity().getSharedPreferences("pref",Context.MODE_PRIVATE)
 
         val userNameSignup = binding.textViewSignupUsernam
         val userPasswordSignup = binding.textViewSignupPassword
         val userRetypeSignup = binding.textViewSignupRetypepassword
 
         binding.imageButtonSignupBack.setOnClickListener {
-            val route = Intent(this, LoginActivity::class.java)
-            startActivity(route)
+            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
 
         binding.buttonSignup.setOnClickListener {
@@ -45,7 +42,6 @@ class SignUpActivity : AppCompatActivity() {
             } else if (userRetypeSignup.text.isNullOrEmpty() || userPasswordSignup.text.isNullOrEmpty()) {
                 userPasswordSignup.requestFocus()
                 userPasswordSignup.error = "Field can not be left blank"
-
             } else if (userPasswordSignup.text.isNullOrEmpty()) {
                 userPasswordSignup.requestFocus()
                 userPasswordSignup.error = "Field can not be left blank"
@@ -53,13 +49,11 @@ class SignUpActivity : AppCompatActivity() {
                 userRetypeSignup.requestFocus()
                 userRetypeSignup.error = "Field can not be left blank"
             } else {
-                sharedPreferences.putString("userNameSignup", userName)
-                sharedPreferences.putString("userPasswordSignup", userPassword)
-                sharedPreferences.putString("userRetypeSignup", userRetypePassword)
-                sharedPreferences.apply()
+                preference.edit().putString("userNameSignup", userName).apply()
+                preference.edit().putString("userPasswordSignup", userPassword).apply()
+                preference.edit().putString("userRetypeSignup", userRetypePassword).apply()
 
-                val route = Intent(this, LoginActivity::class.java)
-                startActivity(route)
+                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
             }
         }
     }
