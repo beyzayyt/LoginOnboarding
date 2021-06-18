@@ -17,7 +17,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     var userPassword = ""
     var userRetypePassword = ""
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,7 +51,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 preference.edit().putString("userNameSignup", userName).apply()
                 preference.edit().putString("userPasswordSignup", userPassword).apply()
                 preference.edit().putString("userRetypeSignup", userRetypePassword).apply()
-
                 findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
             }
         }

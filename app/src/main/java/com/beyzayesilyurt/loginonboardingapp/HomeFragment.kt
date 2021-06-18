@@ -1,6 +1,5 @@
 package com.beyzayesilyurt.loginonboardingapp
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -12,9 +11,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val preference = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
-        val userNameSignUp = preference.getString("userNameSignup", "empty")
-        binding.textviewHomeTitle.text = getString(R.string.welcome_user, userNameSignUp)
+        //pass data from fragment to fragment
+        arguments?.let {
+            binding.textviewHomeTitle.text = getString(R.string.welcome_user,HomeFragmentArgs.fromBundle(it).username)
+        }
     }
 }

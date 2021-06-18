@@ -41,5 +41,9 @@
         android:id="@+id/homeFragment"
         android:name="com.beyzayesilyurt.loginonboardingapp.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
 </navigation>
