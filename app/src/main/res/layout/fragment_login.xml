@@ -94,33 +94,16 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_password" />
 
     <TextView
-        android:id="@+id/textView_Newuser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="New User?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView_login_signup"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_loginPage_login"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
         android:id="@+id/textView_login_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="  Sign Up"
         android:textColor="#3AD29F"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView_Newuser"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_loginPage_login"
-        app:layout_constraintVertical_bias="0.194" />
+        app:layout_constraintVertical_bias="0.274" />
 
     <ImageButton
         android:id="@+id/imageButton_login_back"
