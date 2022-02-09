@@ -37,16 +37,16 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
             if (userNameSignup.text.isNullOrEmpty()) {
                 userNameSignup.requestFocus()
-                userNameSignup.error = "Field can not be left blank"
+                userNameSignup.error = "Field can not be left blank!"
             } else if (userRetypeSignup.text.isNullOrEmpty() || userPasswordSignup.text.isNullOrEmpty()) {
                 userPasswordSignup.requestFocus()
-                userPasswordSignup.error = "Field can not be left blank"
+                userPasswordSignup.error = "Field can not be left blank!"
             } else if (userPasswordSignup.text.isNullOrEmpty()) {
                 userPasswordSignup.requestFocus()
-                userPasswordSignup.error = "Field can not be left blank"
+                userPasswordSignup.error = "Field can not be left blank!"
             } else if (userRetypeSignup.text.isNullOrEmpty()) {
                 userRetypeSignup.requestFocus()
-                userRetypeSignup.error = "Field can not be left blank"
+                userRetypeSignup.error = "Field can not be left blank!"
             } else {
                 preference.edit().putString("userNameSignup", userName).apply()
                 preference.edit().putString("userPasswordSignup", userPassword).apply()
